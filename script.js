@@ -23,7 +23,7 @@ function downloadImage() {
     const img = new Image();
     img.onload = function() {
         ctx.drawImage(logoImage, 0, 0, canvas.width, canvas.height);
-        ctx.font = '45px "Brush Script MT", cursive';
+        ctx.font = 'bold 40px "Brush Script MT", cursive';
         ctx.fillStyle = 'white';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
