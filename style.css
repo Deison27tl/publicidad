@@ -1,0 +1,89 @@
+body {
+  font-family: cursive, Arial, sans-serif; /* Agregar "cursive" para usar un diseño cursivo */
+  background-color: #ec1c24;
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+}
+h1 {
+  margin-bottom: 20px;
+}
+
+.input-container {
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  padding: 5px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.image-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+#nameOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 70px;
+  font-family: "Brush Script MT", cursive;
+  padding-top: 420px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+button:last-child {
+  background-color: #28a745;
+}
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+  .input-container {
+    /* display: flex; */
+    /*flex-direction: column;  */
+    align-items: center;
+    margin-bottom: 10px;
+    max-width: 90%; /* Ajustar el ancho máximo */
+  }
+
+  .input-container input {
+    width: 100%;
+    max-width: 200px;
+    font-size: 18px; /* Ajustar el tamaño de fuente */
+  }
+
+  .image-container {
+    max-width: 90%; /* Ajustar el ancho máximo */
+    width: 100%;
+    margin: 0 auto; /* Centrar horizontalmente */
+    display: block;
+    align-items: center; /* Centrar verticalmente */
+  }
+
+  #logo {
+    max-width: 90%;
+  }
+
+  #nameOverlay {
+    font-size: 45px;
+    writing-mode: horizontal-tb; /* Hace que el texto sea horizontal */
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+    text-align: center; /* Centra el texto horizontalmente */
+    margin-top: -35px; /* Ajusta este valor para subir o bajar el texto */
+  }
+  button {
+    font-size: 18px; /* Ajustar el tamaño de fuente */
+  }
+}
+
+

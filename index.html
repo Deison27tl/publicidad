@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+
+    <div class="input-container">
+        <input type="text" id="nameInput" placeholder="Ingresa tu nombre" maxlength="8">
+        <button onclick="generateImage()">Generar</button>
+        <button onclick="shareImage()">Compartir imagen</button> <!-- Nuevo botón de compartir -->
+        <button onclick="generateShareableLink()">Compartir - WhatsApp</button> <!-- Nuevo botón para compartir -->
+    </div>
+    <div class="image-container" id="imageContainer">
+        <img src="logo.png" alt="Logo" id="logo" class="logoFoto">
+        <div id="nameOverlay"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
