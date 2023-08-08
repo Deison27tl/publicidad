@@ -31,7 +31,7 @@ function downloadImage() {
         ctx.shadowOffsetX = 3;
         ctx.shadowOffsetY = 3;
         ctx.shadowBlur = 5;
-        ctx.fillText(nameOverlay.textContent, canvas.width / 2, canvas.height / 2 + 150); // Baja 100 píxeles y mueve 20 píxeles a la derecha
+        ctx.fillText(nameOverlay.textContent, canvas.width / 2, canvas.height / 2 + 160); // Baja 100 píxeles y mueve 20 píxeles a la derecha
 
         const link = document.createElement('a');
         link.download = 'imagen_personalizada.png';
