@@ -13,7 +13,7 @@ function downloadImage() {
     const nameOverlay = document.getElementById('nameOverlay');
 
     const canvasWidth = 350; // Ancho deseado de la imagen descargada en dispositivos móviles
-    const canvasHeight = 590; // Alto deseado de la imagen descargada en dispositivos móviles
+    const canvasHeight = 595; // Alto deseado de la imagen descargada en dispositivos móviles
 
     const canvas = document.createElement('canvas');
     canvas.width = canvasWidth;
@@ -42,35 +42,6 @@ function downloadImage() {
 
     img.src = logoImage.src;
 }
-
-
-function generateShareableLink() {
-    const imageContainer = document.getElementById('imageContainer');
-    const logoImage = document.getElementById('logo');
-    const nameOverlay = document.getElementById('nameOverlay');
-
-    const canvas = document.createElement('canvas');
-    canvas.width = imageContainer.offsetWidth;
-    canvas.height = imageContainer.offsetHeight;
-    const ctx = canvas.getContext('2d');
-
-    ctx.drawImage(logoImage, 0, 0, canvas.width, canvas.height);
-    ctx.fillText(nameOverlay.textContent, canvas.width / 2, canvas.height / 2);
-
-    // Obtener la URL base64 de la imagen personalizada
-    const imageURL = canvas.toDataURL('image/png');
-
-    // Crear el enlace de WhatsApp con la URL de la imagen como mensaje
-    const phoneNumber = '123456789'; // Reemplaza con el número de WhatsApp deseado
-    const whatsappMessage = encodeURIComponent('¡Echa un vistazo a esta imagen personalizada! ' + imageURL);
-    const whatsappLink = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
-
-    // Abrir una nueva ventana de chat de WhatsApp
-    window.open(whatsappLink);
-}
-
-
-
 
 function shareImage() {
     const canvas = document.createElement('canvas');

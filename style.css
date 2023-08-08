@@ -49,21 +49,23 @@ button:last-child {
 /* Estilos para dispositivos móviles */
 @media (max-width: 768px) {
   .input-container {
-    /* display: flex; */
-    /*flex-direction: column;  */
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    margin-bottom: 10px;
-    max-width: 90%; /* Ajustar el ancho máximo */
+    max-width: 100%; /* Ajustar el ancho máximo */
+    margin-top: 20%; /* Añadir margen inferior a los botones */
+
   }
 
   .input-container input {
-    width: 100%;
-    max-width: 200px;
     font-size: 18px; /* Ajustar el tamaño de fuente */
+    margin-bottom: 10px; /* Añadir margen inferior a los botones */
   }
-
+  .input-container button {
+    margin-bottom: 10px; /* Añadir margen inferior a los botones */
+}
   .image-container {
-    max-width: 90%; /* Ajustar el ancho máximo */
+    max-width: 100%; /* Ajustar el ancho máximo */
     width: 100%;
     margin: 0 auto; /* Centrar horizontalmente */
     display: block;
@@ -71,7 +73,7 @@ button:last-child {
   }
 
   #logo {
-    max-width: 90%;
+    max-width: 100%; /* Ajustar el ancho máximo */
   }
 
   #nameOverlay {
