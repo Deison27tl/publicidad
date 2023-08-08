@@ -12,8 +12,8 @@ function downloadImage() {
     const logoImage = document.getElementById('logo');
     const nameOverlay = document.getElementById('nameOverlay');
 
-    const canvasWidth = 350; // Ancho deseado de la imagen descargada en dispositivos móviles
-    const canvasHeight = 595; // Alto deseado de la imagen descargada en dispositivos móviles
+    const canvasWidth = 360; // Ancho deseado de la imagen descargada en dispositivos móviles
+    const canvasHeight = 580; // Alto deseado de la imagen descargada en dispositivos móviles
 
     const canvas = document.createElement('canvas');
     canvas.width = canvasWidth;
