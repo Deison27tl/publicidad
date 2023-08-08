@@ -12,18 +12,21 @@ function downloadImage() {
     const logoImage = document.getElementById('logo');
     const nameOverlay = document.getElementById('nameOverlay');
 
-    const canvasWidth = 360; // Ancho deseado de la imagen descargada en dispositivos móviles
-    const canvasHeight = 580; // Alto deseado de la imagen descargada en dispositivos móviles
-
     const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+
+    ctx.font = 'bold 40px "Brush Script MT", cursive';
+    const textWidth = ctx.measureText(nameOverlay.textContent).width;
+
+    const canvasWidth = textWidth + 100; // Ancho del texto más un margen
+    const canvasHeight = 595; // Alto deseado de la imagen descargada en dispositivos móviles
+
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
-    const ctx = canvas.getContext('2d');
 
     const img = new Image();
     img.onload = function() {
         ctx.drawImage(logoImage, 0, 0, canvas.width, canvas.height);
-        ctx.font = 'bold 40px "Brush Script MT", cursive';
         ctx.fillStyle = 'white';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
@@ -31,7 +34,7 @@ function downloadImage() {
         ctx.shadowOffsetX = 3;
         ctx.shadowOffsetY = 3;
         ctx.shadowBlur = 5;
-        ctx.fillText(nameOverlay.textContent, canvas.width / 2, canvas.height / 2 + 160); // Baja 100 píxeles y mueve 20 píxeles a la derecha
+        ctx.fillText(nameOverlay.textContent, canvas.width / 2, canvas.height / 2 + 160);
 
         const link = document.createElement('a');
         link.download = 'imagen_personalizada.png';
@@ -39,9 +42,9 @@ function downloadImage() {
         link.click();
 
     };
-
-    img.src = logoImage.src;
+    img.src = 'ruta_de_la_imagen_logo'; // Reemplaza 'ruta_de_la_imagen_logo' con la ruta real de la imagen del logo
 }
+
 
 function shareImage() {
     const canvas = document.createElement('canvas');
