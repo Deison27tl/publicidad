@@ -37,16 +37,32 @@ function generateImage() {
     img.src = 'https://barnaby-creoenti.netlify.app/logo.png'; // URL real de la imagen de logo
 }
 
-function shareImage(imageUrl) {
-    if (navigator.share) {
-        navigator.share({
-            title: 'Imagen personalizada',
-            text: '¡Mira la imagen personalizada que he creado!',
-            url: imageUrl,
-        })
-        .then(() => console.log('Compartido con éxito.'))
-        .catch(error => console.log('Error al compartir:', error));
-    } else {
-        console.log('La API Web Share no está disponible en este navegador.');
-    }
+function shareImage() {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    const imageContainer = document.getElementById('imageContainer');
+    canvas.width = imageContainer.offsetWidth;
+    canvas.height = imageContainer.offsetHeight;
+    
+    const logoImage = document.getElementById('logo');
+    const nameOverlay = document.getElementById('nameOverlay');
+    
+    ctx.drawImage(logoImage, 0, 0, canvas.width, canvas.height);
+    ctx.fillText(nameOverlay.textContent, canvas.width / 2, canvas.height / 2);
+    
+    canvas.toBlob(blob => {
+        const filesArray = [new File([blob], 'imagen_personalizada.png', { type: 'image/png' })];
+        if (navigator.share && navigator.canShare({ files: filesArray })) {
+            navigator.share({
+                files: filesArray,
+                title: 'Imagen personalizada',
+                text: '¡Mira la imagen personalizada que he creado!',
+            })
+                .then(() => console.log('Compartido con éxito.'))
+                .catch(error => console.log('Error al compartir:', error));
+        } else {
+            console.log('La API Web Share no está disponible en este navegador.');
+        }
+    }, 'image/png');
 }
