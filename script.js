@@ -32,22 +32,16 @@ function downloadImage() {
         ctx.shadowBlur = 5;
         ctx.fillText(nameOverlay.textContent, canvas.width / 2, canvas.height / 2 + 160);
 
-        const link = document.createElement('a');
-        link.href = canvas.toDataURL('image/png');
-        return link.href;
+        const imageUrl = canvas.toDataURL('image/png');
+        shareImage(imageUrl); // Llamamos a la función shareImage pasando la URL de la imagen generada
     };
     img.src = 'https://barnaby-creoenti.netlify.app/logo.png'; // URL de la imagen del logo
 }
 
-
-
-function shareImage() {
-    const imageUrl = downloadImage(); // Obtener la URL de la imagen generada
-
-    const filesArray = [new File([imageUrl], 'imagen_personalizada.png', { type: 'image/png' })];
-    if (navigator.share && navigator.canShare({ files: filesArray })) {
+function shareImage(imageUrl) {
+    if (navigator.share) {
         navigator.share({
-            files: filesArray,
+            url: imageUrl,
             title: 'Imagen personalizada',
             text: '¡Mira la imagen personalizada que he creado!',
         })
